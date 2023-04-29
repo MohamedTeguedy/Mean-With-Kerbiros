@@ -1,0 +1,80 @@
+
+<div class="site-wrap">
+
+   
+
+    <div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-9 mx-auto text-center">
+            <h1 class="text-white">Sing up</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+
+            <form [formGroup]="singUp">
+
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="firstName" placeholder="firstName">
+              </div>
+
+              <div class="text-danger" *ngIf="singUp.controls['firstName'].invalid && (singUp.controls['firstName'].dirty || singUp.controls['firstName'].touched)" >
+                <div *ngIf="singUp.controls['firstName'].errors?.minlength" >min len</div>
+                <div *ngIf="singUp.controls['firstName'].errors?.required">req</div>
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" formControlName="lastName" placeholder="lastName">
+              </div>
+
+              <div class="text-danger" *ngIf="singUp.controls['lastName'].invalid && (singUp.controls['lastName'].dirty || singUp.controls['lastName'].touched)" >
+                <div *ngIf="singUp.controls['lastName'].errors?.minlength" >min len</div>
+                <div *ngIf="singUp.controls['lastName'].errors?.required">req</div>
+              </div>
+              
+              <div class="form-group">
+                <input type="email" class="form-control" formControlName="Email" placeholder="Email">
+              </div>
+
+              <div class="form-group">
+                <input type="password" class="form-control" formControlName="Password" placeholder="Password">
+              </div>
+
+              <div class="form-group">
+                <input type="password" class="form-control" formControlName="confirmPassword" placeholder="confirmPassword" >
+              </div>
+              
+                <div class="text-danger" *ngIf="singUp.controls['confirmPassword'].invalid && (singUp.controls['confirmPassword'].dirty || singUp.controls['confirmPassword'].touched)" >
+                    <div *ngIf="singUp.controls['confirmPassword'].errors?.mustMatch" >must match</div>
+                  </div>
+                  <div class="form-group"> 
+                    <div class="form-group" style="text-align: center;">
+
+                    <button type="button" (click)="filePicker.click()" class="btn btn-success"> 
+                      Selection image
+                    </button>
+                    <input type="file" style="visibility:hidden;" class="form-control" #filePicker (change)="onImageSelected($event)">
+                    </div>
+                    <div style="text-align: center;" *ngIf="imagePreview">
+                    <img [src]="imagePreview" style="height: 250px;width: 250px;" class="rounded-circle">
+                  </div>
+                  </div>
+            
+              <div class="form-group">
+                <button  class="btn btn-primary py-3 px-5" (click)="login()">Sing up </button>
+              </div>
+            </form>  
+          </div>
+         
+        </div>
+      </div>
+    </div>
+
+  </div>
