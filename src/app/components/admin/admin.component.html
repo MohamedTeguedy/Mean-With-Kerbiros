@@ -1,0 +1,114 @@
+
+    <div class="hero overlay" style="background-image: url('assets/images/bg_3.jpg');">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-9 mx-auto text-center">
+              <h1 class="text-white">{{ title | reverse}}</h1>
+              <h3>{{actualData | date:"dd/MM-yyyy hh:mm"}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Matches</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Players</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Teams</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">ScoreOne</th>
+                <th scope="col">ScoreTwo</th>
+                <th scope="col">TeamOne</th>
+                <th scope="col">TeamTwo</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let m of matches">
+                <td>{{m._id}}</td>
+                <td>{{m.scoreOne}}</td>
+                <td>{{m.scoreTwo}}</td>
+                <td>{{m.teamOne}}</td>
+                <td>{{m.teamTwo}}</td>
+                
+                <td>
+                    <button class="btn btn-success" (click)="goToDisplay(m._id)">Display</button>
+                    <button class="btn btn-warning" (click)="goToEdit(m._id)">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteMatch(m._id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Position</th>
+                
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let m of players">
+                <td>{{m._id}}</td>
+                <td>{{m.Nom}}</td>
+                <td>{{m.Age}}</td>
+                <td>{{m.Position}}</td>
+               
+                
+               
+                <td>
+                    <button class="btn btn-success"  (click)="goToDisplayPlayer(m.id)">Display</button>
+                    <button class="btn btn-warning" (click)="gotoEditPlayer(m.id)">Edit</button>
+                    <button class="btn btn-danger" (click)="DeletePlayer(m.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Owner</th>
+                <th scope="col">Foundation</th>
+                <th scope="col">Stadium</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let m of teams">
+                <td>{{m._id}}</td>
+                <td>{{m.name}}</td>
+                <td>{{m.owner}}</td>
+                <td>{{m.foundation}}</td>
+                <td>{{m.stadium}}</td>
+               
+                <td>
+                    <button class="btn btn-success">Display</button>
+                    <button class="btn btn-warning">Edit</button>
+                    <button class="btn btn-danger" (click)="deleteMatch(m.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>

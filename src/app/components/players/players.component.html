@@ -1,0 +1,15 @@
+
+<div class="contaire site-section">
+    <div class="row">
+        <div class="col-6 title-section">
+            <h2 class="heading"> Our Players</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6" *ngFor="let p of players">
+       <app-playr [playerInput]="p"></app-playr>
+
+    </div>
+
+</div>

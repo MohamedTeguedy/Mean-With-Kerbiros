@@ -1,0 +1,38 @@
+{
+  "matches": [
+    {
+      "teamOne": "teguedi",
+      "teamTwo": "med",
+      "scoreOne": "3",
+      "scoreTwo": "1",
+      "id": 4
+    },
+    {
+      "teamOne": "brezil",
+      "teamTwo": "arguetina",
+      "scoreOne": "5",
+      "scoreTwo": "0",
+      "id": 5
+    }
+  ],
+  "players": [
+    {
+      "id": 2,
+      "Nom": "Ronaldo",
+      "Age": 35,
+      "Position": "AT"
+    },
+    {
+      "Nom": "Messi",
+      "Position": "millieu",
+      "Age": "36",
+      "id": 4
+    },
+    {
+      "Nom": "teguedi",
+      "Position": "AT",
+      "Age": "38",
+      "id": 5
+    }
+  ]
+}
