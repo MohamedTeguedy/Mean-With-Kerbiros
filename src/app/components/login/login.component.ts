@@ -18,21 +18,17 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  login(){
-   this.userService.login(this.user).subscribe(
-    (data)=>{
-      console.log("Here data from BE",data)
-      if (data.message=="Error") {
-        this.errorMsg="Please chech email/pwd"
-      } else {
-        if (data.user.role=="admin") {
-          this.router.navigate(["admin"]);
-        } else {
-          this.router.navigate(["home"]);
-          
-        }
-        
-      }
+  login() {
+  const username = this.form.username;
+  const password = this.form.password;
+
+  this.http.post('/login', { username: username, password: password })
+    .subscribe((response: any) => {
+      const token = response.token;
+      localStorage.setItem('token', token);
+    });
+}
+
     }
    )
     
